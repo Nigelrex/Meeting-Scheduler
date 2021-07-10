@@ -1,0 +1,35 @@
+{
+  "name": "meeting-scheduler",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "main.js",
+  "version": "1.0.0",
+  "author": "Nigelrex",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.1.6",
+    "electron-builder": "^22.11.7",
+    "electron-packager": "^15.2.0",
+    "electron-winstaller": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.meeting_scheduler.app",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "unicode": false,
+      "artifactName": "Meeting Scheduler.exe"
+    }
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "fs-extra": "^8.1.0",
+    "fs.promises": "^0.1.2"
+  }
+}
