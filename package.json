@@ -17,7 +17,15 @@
     "electron-winstaller": "^5.0.0"
   },
   "build": {
-    "appId": "com.meeting_scheduler.app",
+    "appId": "Meeting Scheduler",
+    "productName": "Meeting Scheduler",
+    "publish": [
+      {
+        "provider": "github"
+      },
+      "github",
+      "bintray"
+    ],
     "win": {
       "target": "nsis",
       "icon": "build/icon.ico"
