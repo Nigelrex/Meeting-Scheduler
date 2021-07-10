@@ -21,10 +21,10 @@
     "productName": "Meeting Scheduler",
     "publish": [
       {
-        "provider": "github"
+        "provider": "bintray"
       },
-      "github",
-      "bintray"
+      "github"
+      
     ],
     "win": {
       "target": "nsis",
