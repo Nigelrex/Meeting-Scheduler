@@ -18,11 +18,11 @@
   },
   "build": {
     "appId": "Meeting Scheduler",
-    "productName": "Meeting Scheduler",
-    "publish": [
-      {
-        "provider": "bintray"
-      }
+		"productName": "Meeting Scheduler",
+		"publish": [
+			{
+				"provider": "github"
+			}
     ],
     "win": {
       "target": "nsis",
