@@ -22,9 +22,7 @@
     "publish": [
       {
         "provider": "bintray"
-      },
-      "github"
-      
+      }
     ],
     "win": {
       "target": "nsis",
