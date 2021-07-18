@@ -35,4 +35,4 @@ jobs:
         run: |
           npm ci
           npm install
-          npm run make
+          npm run make --if-present
