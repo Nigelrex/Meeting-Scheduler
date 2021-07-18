@@ -7,22 +7,41 @@
   "author": "Nigelrex",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder"
+    "pack": "electron-builder",
+    "make": "electron-forge make"
   },
   "license": "ISC",
   "devDependencies": {
-    "electron": "^13.1.6",
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "@rollup/plugin-commonjs": "^19.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.2",
+    "concurrently": "^6.2.0",
+    "electron": "^13.1.7",
     "electron-builder": "^22.11.7",
+    "electron-forge": "^5.2.4",
     "electron-packager": "^15.2.0",
-    "electron-winstaller": "^5.0.0"
+    "electron-prebuilt-compile": "^1.3.2",
+    "electron-reload": "^1.5.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-winstaller": "^5.0.0",
+    "rollup": "^2.53.2",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^1.0.12",
+    "svelte": "^3.38.3"
   },
   "build": {
     "appId": "Meeting Scheduler",
-		"productName": "Meeting Scheduler",
-		"publish": [
-			{
-				"provider": "github"
-			}
+    "productName": "Meeting Scheduler",
+    "publish": [
+      {
+        "provider": "github"
+      }
     ],
     "win": {
       "target": "nsis",
@@ -33,9 +52,31 @@
       "artifactName": "Meeting Scheduler.exe"
     }
   },
-  "dependencies": {
-    "fs": "^0.0.1-security",
-    "fs-extra": "^8.1.0",
-    "fs.promises": "^0.1.2"
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "crawler"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

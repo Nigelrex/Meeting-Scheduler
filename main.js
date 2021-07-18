@@ -92,15 +92,26 @@ function createWindow() {
 }
 
 //start app
-app.whenReady().then(() => {
-  console.log("App running!");
-  createWindow();
 
+app.on("ready", () => {
+  // autoUpdater.checkForUpdates();
+  createWindow();
   app.on("activate", function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
+
+// app.whenReady().then(() => {
+//   // console.log("App running!");
+//   createWindow();
+
+//   app.on("activate", function () {
+//     // On macOS it's common to re-create a window in the app when the
+//     // dock icon is clicked and there are no other windows open.
+//     if (BrowserWindow.getAllWindows().length === 0) createWindow();
+//   });
+// });
 
 let tray = null; //do not move this or the app tray will not work as intended!!
