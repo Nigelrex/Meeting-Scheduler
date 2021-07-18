@@ -1,3 +1,4 @@
+"use strict";
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, Menu, Tray, Notification } = require("electron");
 const path = require("path");
@@ -6,16 +7,7 @@ const Closing_title = "Meeting Scheduler";
 const Closing_body =
   "Since you are closing Meeting scheduler, your meetings will not be saved and be opened during the time";
 
-const showNotification = function () {
-  app.whenReady().then(() => {
-    if (app.isQuiting) {
-      new Notification({
-        title: Closing_title,
-        body: Closing_body,
-      }).show();
-    }
-  });
-};
+let tray = null; //do not move this or the app tray will not work as intended!!
 
 function createWindow() {
   // Create the browser window.
@@ -26,16 +18,33 @@ function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, "./public/js/preload.js"),
     },
+    icon: "./icon.ico",
   });
+
+  //notification
+  const showNotification = function () {
+    app.whenReady().then(() => {
+      if (app.isQuiting) {
+        new Notification({
+          title: Closing_title,
+          body: Closing_body,
+        }).show();
+      }
+    });
+  };
+
+  //icon
+  const icon = path.join(__dirname, "./icon.ico");
 
   // and load the index.html of the app.
   mainWindow.setMenuBarVisibility(false); //hide default menu bar
 
-  mainWindow.setIcon(path.join(__dirname, "./Nigelrex.ico")); //add app icon
+  mainWindow.setIcon(path.join(__dirname, "./icon.ico")); //add app icon
+  // console.log(path.join(__dirname, "icon.png"));
 
   mainWindow.loadFile("./public/index.html"); //load app file
 
-  tray = new Tray("./Nigelrex.ico");
+  tray = new Tray("./icon.ico");
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Show application",
@@ -55,12 +64,14 @@ function createWindow() {
         // Quit when all windows are closed, except on macOS. There, it's common
         // for applications and their menu bar to stay active until the user quits
         // explicitly with Cmd + Q.
-      },
+      }
     },
   ]);
 
   tray.setToolTip("Meeting Scheduler");
   tray.setContextMenu(contextMenu);
+  // console.log("Tray icon working!")
+  // console.log(contextMenu)
 
   mainWindow.on("minimize", function (event) {
     showNotification();
@@ -93,20 +104,9 @@ function createWindow() {
 
 //start app
 
-app.on("ready", () => {
-  // autoUpdater.checkForUpdates();
-  createWindow();
-  app.on("activate", function () {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-});
-
-// app.whenReady().then(() => {
-//   // console.log("App running!");
+// app.on("ready", () => {
+//   // autoUpdater.checkForUpdates();
 //   createWindow();
-
 //   app.on("activate", function () {
 //     // On macOS it's common to re-create a window in the app when the
 //     // dock icon is clicked and there are no other windows open.
@@ -114,4 +114,13 @@ app.on("ready", () => {
 //   });
 // });
 
-let tray = null; //do not move this or the app tray will not work as intended!!
+app.whenReady().then(() => {
+  // console.log("App running!");
+  createWindow();
+
+  app.on("activate", function () {
+    // On macOS it's common to re-create a window in the app when the
+    // dock icon is clicked and there are no other windows open.
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
