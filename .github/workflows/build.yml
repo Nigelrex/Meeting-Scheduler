@@ -35,5 +35,4 @@ jobs:
         run: |
           npm ci
           npm install
-          npm i electron-prebuilt-compile@latest
           npm run make --if-present
