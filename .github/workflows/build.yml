@@ -18,6 +18,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+          
+      - run: npm ci
+      - run: npm i electron-prebuilt-compile@latest
+      - run: npm run make --if-present
+      - run: npm publish
+        if: github.event == 'push'
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
@@ -32,10 +38,3 @@ jobs:
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          
-      - run: npm ci
-      - run: npm i electron-prebuilt-compile@latest
-      - run: npm run make --if-present
-      - run: npm publish
-        if: github.event == 'push'
-
