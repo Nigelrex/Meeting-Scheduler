@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v1
 
       - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v2.3.0
+        uses: actions/setup-node@v1
         with:
           node-version: 14
 
@@ -24,16 +24,18 @@ jobs:
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.ms }}
           release: true
+          # release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+          
           # bintray_token: ${{ secrets.bintray_token }}
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
-          # release: ${{ startsWith(github.ref, 'refs/tags/v') }}
-      - name: Build App
-        run: |
-          npm ci
-          npm install
-          npm i electron-prebuilt-compile@latest
-          npm run make --if-present
+          
+      - run: npm ci
+      - run: npm i electron-prebuilt-compile@latest
+      - run: npm run make --if-present
+      - run: npm publish
+        if: github.event == 'push'
+
