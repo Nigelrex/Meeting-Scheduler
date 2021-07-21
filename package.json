@@ -34,7 +34,7 @@
     "electron-squirrel-startup": "^1.0.0",
     "electron-winstaller": "^5.0.0",
     "electron-wix-msi": "^2.2.0",
-    "rollup": "^2.53.2",
+    "rollup": "^2.53.3",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
