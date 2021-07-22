@@ -7,6 +7,7 @@ Schedule your meetings and sit back and relax
 # ChangeLog
 
 ○ First release, added first slot for scheduling meetings
+
 ○ Added Tray feature, used to close the app
 
 ○ Added warning Notification when the app is closed! 
