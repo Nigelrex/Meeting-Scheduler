@@ -42,11 +42,19 @@
         }
       ],
       "packagerConfig": {},
+      "electronRebuildConfig": {},
+      "electronWinstallerConfig": {},
+      "electronInstallerDMG": {},
+      "electronInstallerFlatpak": {},
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "electronInstallerSnap": {}
+	  
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "Meeting Scheduler",
+            "name": "meeting scheduler",
             "icon": "icon.ico",
             "setupIcon": "icon.ico"
           }
