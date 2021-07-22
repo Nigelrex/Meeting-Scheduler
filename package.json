@@ -36,25 +36,17 @@
           "config": {
             "repository": {
               "owner": "Nigelrex",
-              "name": "meeting-scheduler"
+              "name": "meeting_scheduler"
             }
           }
         }
       ],
       "packagerConfig": {},
-      "electronRebuildConfig": {},
-      "electronWinstallerConfig": {},
-      "electronInstallerDMG": {},
-      "electronInstallerFlatpak": {},
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "electronInstallerSnap": {}
-	  
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "meeting scheduler",
+            "name": "meeting_scheduler",
             "icon": "icon.ico",
             "setupIcon": "icon.ico"
           }
