@@ -12,8 +12,8 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build / publish
-    - run: npm run make
-    - run: npm run publish
+      run: npm run make
+      #run: npm run publish
 
   build_on_mac:
     runs-on: macos-latest
@@ -25,8 +25,8 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build / publish
-    - run: npm run make
-    - run: npm run publish
+      run: npm run make
+      #run: npm run publish
 
   build_on_win:
     runs-on: windows-latest
@@ -38,5 +38,5 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build / publish
-    - run: npm run make
-    - run: npm run publish
+      run: npm run make
+      #run: npm run publish
