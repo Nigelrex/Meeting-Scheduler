@@ -5,7 +5,7 @@ const path = require("path");
 
 const Closing_title = "Meeting Scheduler";
 const Closing_body =
-  "Since you are closing Meeting scheduler, your meetings will not be saved and be opened during the time";
+  "Since you are closing Meeting scheduler, your upcoming meetings will not be saved and be opened during the time of schedule!";
 
 let tray = null; //do not move this or the app tray will not work as intended!!
 
@@ -16,7 +16,9 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, "./public/js/preload.js"),
+      preload: path.join(app.getAppPath(), "./public/js/preload.js"),
+      contextIsolation: false,
+      nodeIntegration: true,
     },
     icon: "./icon.ico",
   });
@@ -34,7 +36,7 @@ function createWindow() {
   };
 
   //icon
-  const icon = path.join(__dirname, "./icon.ico");
+  const image = path.join(__dirname, "./icon.ico");
 
   // and load the index.html of the app.
   mainWindow.setMenuBarVisibility(false); //hide default menu bar
@@ -43,8 +45,9 @@ function createWindow() {
   // console.log(path.join(__dirname, "icon.png"));
 
   mainWindow.loadFile("./public/index.html"); //load app file
+  // mainWindow.loadURL('https://meet.google.com');
 
-  tray = new Tray("./icon.ico");
+  tray = new Tray(image);
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Show application",
@@ -64,12 +67,14 @@ function createWindow() {
         // Quit when all windows are closed, except on macOS. There, it's common
         // for applications and their menu bar to stay active until the user quits
         // explicitly with Cmd + Q.
-      }
+      },
     },
   ]);
 
   tray.setToolTip("Meeting Scheduler");
+  // tray.setImage(image);
   tray.setContextMenu(contextMenu);
+
   // console.log("Tray icon working!")
   // console.log(contextMenu)
 
@@ -80,7 +85,6 @@ function createWindow() {
   });
 
   mainWindow.on("close", function (event) {
-    showNotification();
     if (!app.isQuiting) {
       showNotification();
       event.preventDefault();
@@ -99,7 +103,7 @@ function createWindow() {
   //above is the default close program
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools();
 }
 
 //start app
