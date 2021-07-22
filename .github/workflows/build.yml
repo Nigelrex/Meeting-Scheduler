@@ -15,8 +15,9 @@ jobs:
       run: npm run make
     - run: npm run publish
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+ 
   build_on_mac:
     runs-on: macos-latest
     steps:
@@ -30,7 +31,7 @@ jobs:
       run: npm run make
     - run: npm run publish
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build_on_win:
     runs-on: windows-latest
@@ -45,4 +46,4 @@ jobs:
       run: npm run make
     - run: npm run publish
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
