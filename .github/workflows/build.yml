@@ -9,10 +9,6 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 12
-        tag_name: Meeting Scheduler (ubuntu)
-        release_name: Meeting Scheduler
-        draft: false
-        prerelease: false
     - name: install dependencies
       run: npm install
     - name: build / publish
@@ -26,10 +22,6 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 12
-        tag_name: Meeting Scheduler (mac)
-        release_name: Meeting Scheduler
-        draft: false
-        prerelease: false
     - name: install dependencies
       run: npm install
     - name: build / publish
@@ -43,10 +35,6 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: 12
-        tag_name: Meeting Scheduler (win32)
-        release_name: Meeting Scheduler
-        draft: false
-        prerelease: false
     - name: install dependencies
       run: npm install
     - name: build / publish
