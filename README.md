@@ -1,4 +1,5 @@
-[![BUILD APP](https://github.com/Nigelrex/Meeting-Scheduler/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Nigelrex/Meeting-Scheduler/actions/workflows/build.yml) only for windows lul :p
+![GitHub](https://img.shields.io/github/license/Nigelrex/meeting-scheduler?style=flat-square) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Nigelrex/meeting-scheduler?style=flat-square) ![GitHub language count](https://img.shields.io/github/languages/count/nigelrex/meeting-scheduler?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/Nigelrex/meeting-scheduler/total?color=brightgreen&logo=github&style=flat-square) ![GitHub issues](https://img.shields.io/github/issues/Nigelrex/meeting-scheduler?style=flat-square) ![GitHub repo size](https://img.shields.io/github/repo-size/Nigelrex/meeting-scheduler?style=flat-square) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/Nigelrex/meeting-scheduler?style=flat-square)
+![BUILD APP](https://github.com/Nigelrex/Meeting-Scheduler/actions/workflows/build.yml/badge.svg?branch=main&style=flat-square) only for windows lul :p
 
 # Meeting-Scheduler
 
