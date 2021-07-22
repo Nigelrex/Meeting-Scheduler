@@ -4,6 +4,5 @@
 
 Schedule your meetings and sit back and relax
 
----
-: : build app
----
+# TODO
+♦ Build app in github actions
