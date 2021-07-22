@@ -14,7 +14,7 @@ on:
 
 jobs:
   njsscan:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: njsscan code scanning
     steps:
     - name: Checkout the code
