@@ -14,6 +14,6 @@
 
 ○ Added warning Notification when the app is closed! 
 # TODO
-♦ Build app in github actions
+♦ None
 
 
