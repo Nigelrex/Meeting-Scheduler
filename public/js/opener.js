@@ -1,5 +1,5 @@
 function myFunction() {
-  var CT = require("convert-time");
+  const CT = require("convert-time");
   let link;
   link = document.getElementById("ml").value;
   let time;
@@ -7,14 +7,14 @@ function myFunction() {
   if (typeof Storage !== "undefined") {
     localStorage.removeItem("meetingl");
     localStorage.removeItem("meetingt");
-    var d = new Date();
-    var c = d.toLocaleTimeString();
+    let d = new Date();
+    let c = d.toLocaleTimeString();
     const ttime = CT(time);
     localStorage.setItem("meetingt", ttime);
     localStorage.setItem("meetingl", link);
     const url = localStorage.getItem("meetingl");
     const interval = setInterval(function () {
-      var dd = new Date();
+      const dd = new Date();
       if (dd.toLocaleTimeString() >= localStorage.getItem("meetingt")) {
         localStorage.removeItem("meetingt");
         require("electron").shell.openExternal(url);
